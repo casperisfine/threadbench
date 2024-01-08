@@ -1,0 +1,320 @@
+$ bin/bench_constant 1
+Puma starting in single mode...
+* Puma version: 6.4.1 (ruby 3.3.0-p0) ("The Eagle of Durango")
+*  Min threads: 1
+*  Max threads: 1
+*  Environment: development
+*          PID: 24693
+Testing with:
+50.0% time spent waiting on CPU
+50.0% time spent waiting on IO
+0.1 seconds average response duration (approximate, not including GC)
+300000 objects are generated w/each request
+We will decide to do CPU or IO every 10.0 milliseconds
+CPU iteration: 0.050999922677874565ms
+* Listening on http://0.0.0.0:9292
+Use Ctrl-C to stop
+Warming up for 15 seconds...
+Benchmarking...
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: k6/constant.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 4 max VUs, 2m0s max duration (incl. graceful stop):
+           * contacts: 1000 iterations shared among 4 VUs (maxDuration: 1m30s, gracefulStop: 30s)
+
+
+     data_received..................: 66 kB 731 B/s
+     data_sent......................: 56 kB 615 B/s
+     dropped_iterations.............: 304   3.35949/s
+     http_req_blocked...............: min=230µs    avg=320.78µs med=304µs    max=1.88ms   p(95)=381.25µs p(99)=430.59µs p(99.99)=1.87ms  
+     http_req_connecting............: min=207µs    avg=276.45µs med=267µs    max=1.01ms   p(95)=339µs    p(99)=384.1µs  p(99.99)=985.75µs
+     http_req_duration..............: min=129.24ms avg=518.52ms med=519.03ms max=550.98ms p(95)=536.3ms  p(99)=542.13ms p(99.99)=550.69ms
+       { expected_response:true }...: min=129.24ms avg=518.52ms med=519.03ms max=550.98ms p(95)=536.3ms  p(99)=542.13ms p(99.99)=550.69ms
+     http_req_failed................: 0.00% ✓ 0        ✗ 696
+     http_req_receiving.............: min=29µs     avg=47.65µs  med=45µs     max=137µs    p(95)=69µs     p(99)=82.15µs  p(99.99)=135.33µs
+     http_req_sending...............: min=7µs      avg=19.27µs  med=18µs     max=51µs     p(95)=29µs     p(99)=37.04µs  p(99.99)=50.37µs 
+     http_req_tls_handshaking.......: min=0s       avg=0s       med=0s       max=0s       p(95)=0s       p(99)=0s       p(99.99)=0s      
+     http_req_waiting...............: min=129.11ms avg=518.45ms med=518.96ms max=550.91ms p(95)=536.24ms p(99)=542.08ms p(99.99)=550.62ms
+     http_reqs......................: 696   7.691464/s
+     iteration_duration.............: min=131.33ms avg=518.9ms  med=519.39ms max=551.35ms p(95)=536.67ms p(99)=542.48ms p(99.99)=551.06ms
+     iterations.....................: 696   7.691464/s
+     vus............................: 4     min=4      max=4
+     vus_max........................: 4     min=4      max=4
+
+
+running (1m30.5s), 0/4 VUs, 696 complete and 0 interrupted iterations
+contacts ✗ [=========================>------------] 4 VUs  1m30.5s/1m30s  0696/1000 shared iters
+----------------------------------------
+Count:   814
+Min:     116.5ms
+Average: 129.3ms
+Median:  129.5ms
+P75:     132.4ms
+P95:     136.4ms
+P99:     139.3ms
+P99.9:   142.6ms
+Max:     142.6ms
+
+$ bin/bench_constant 2
+Puma starting in single mode...
+* Puma version: 6.4.1 (ruby 3.3.0-p0) ("The Eagle of Durango")
+*  Min threads: 2
+*  Max threads: 2
+*  Environment: development
+*          PID: 23270
+Testing with:
+50.0% time spent waiting on CPU
+50.0% time spent waiting on IO
+0.1 seconds average response duration (approximate, not including GC)
+300000 objects are generated w/each request
+We will decide to do CPU or IO every 10.0 milliseconds
+CPU iteration: 0.052999937906861305ms
+* Listening on http://0.0.0.0:9292
+Use Ctrl-C to stop
+Warming up for 15 seconds...
+Benchmarking...
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: k6/constant.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 4 max VUs, 2m0s max duration (incl. graceful stop):
+           * contacts: 1000 iterations shared among 4 VUs (maxDuration: 1m30s, gracefulStop: 30s)
+
+
+     data_received..................: 95 kB 1.1 kB/s
+     data_sent......................: 80 kB 927 B/s
+     http_req_blocked...............: min=139µs    avg=328.23µs med=307µs    max=3.76ms   p(95)=384.04µs p(99)=463.04µs p(99.99)=3.76ms  
+     http_req_connecting............: min=126µs    avg=281.75µs med=272µs    max=1.85ms   p(95)=342.04µs p(99)=417.19µs p(99.99)=1.72ms  
+     http_req_duration..............: min=135.85ms avg=344.41ms med=339.06ms max=540.63ms p(95)=424.17ms p(99)=459.06ms p(99.99)=537.87ms
+       { expected_response:true }...: min=135.85ms avg=344.41ms med=339.06ms max=540.63ms p(95)=424.17ms p(99)=459.06ms p(99.99)=537.87ms
+     http_req_failed................: 0.00% ✓ 0         ✗ 1000
+     http_req_receiving.............: min=13µs     avg=38.97µs  med=38µs     max=103µs    p(95)=55µs     p(99)=73µs     p(99.99)=102.4µs 
+     http_req_sending...............: min=7µs      avg=17.25µs  med=16µs     max=155µs    p(95)=27µs     p(99)=35µs     p(99.99)=144.31µs
+     http_req_tls_handshaking.......: min=0s       avg=0s       med=0s       max=0s       p(95)=0s       p(99)=0s       p(99.99)=0s      
+     http_req_waiting...............: min=135.72ms avg=344.35ms med=339ms    max=540.59ms p(95)=424.12ms p(99)=459.03ms p(99.99)=537.83ms
+     http_reqs......................: 1000  11.585369/s
+     iteration_duration.............: min=139.72ms avg=344.79ms med=339.43ms max=540.97ms p(95)=424.49ms p(99)=459.35ms p(99.99)=538.22ms
+     iterations.....................: 1000  11.585369/s
+     vus............................: 4     min=4       max=4 
+     vus_max........................: 4     min=4       max=4 
+
+
+running (1m26.3s), 0/4 VUs, 1000 complete and 0 interrupted iterations
+contacts ✓ [======================================] 4 VUs  1m26.3s/1m30s  1000/1000 shared iters
+----------------------------------------
+Count:   1119
+Min:     112.2ms
+Average: 156.8ms
+Median:  150.1ms
+P75:     174.3ms
+P95:     219.7ms
+P99:     259.5ms
+P99.9:   308.1ms
+Max:     331.2ms
+
+$ bin/bench_constant 3
+Puma starting in single mode...
+* Puma version: 6.4.1 (ruby 3.3.0-p0) ("The Eagle of Durango")
+*  Min threads: 3
+*  Max threads: 3
+*  Environment: development
+*          PID: 25880
+Testing with:
+50.0% time spent waiting on CPU
+50.0% time spent waiting on IO
+0.1 seconds average response duration (approximate, not including GC)
+300000 objects are generated w/each request
+We will decide to do CPU or IO every 10.0 milliseconds
+CPU iteration: 0.05100015550851822ms
+* Listening on http://0.0.0.0:9292
+Use Ctrl-C to stop
+Warming up for 15 seconds...
+Benchmarking...
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: k6/constant.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 4 max VUs, 2m0s max duration (incl. graceful stop):
+           * contacts: 1000 iterations shared among 4 VUs (maxDuration: 1m30s, gracefulStop: 30s)
+
+
+     data_received..................: 95 kB 1.3 kB/s
+     data_sent......................: 80 kB 1.1 kB/s
+     http_req_blocked...............: min=139µs    avg=308.84µs med=293µs    max=2.83ms   p(95)=374.04µs p(99)=443.02µs p(99.99)=2.83ms  
+     http_req_connecting............: min=121µs    avg=269.08µs med=262µs    max=776µs    p(95)=336.14µs p(99)=409µs    p(99.99)=748.82µs
+     http_req_duration..............: min=151.16ms avg=296.2ms  med=292.51ms max=541.37ms p(95)=404.41ms p(99)=460.41ms p(99.99)=538.58ms
+       { expected_response:true }...: min=151.16ms avg=296.2ms  med=292.51ms max=541.37ms p(95)=404.41ms p(99)=460.41ms p(99.99)=538.58ms
+     http_req_failed................: 0.00% ✓ 0         ✗ 1000
+     http_req_receiving.............: min=12µs     avg=34.67µs  med=35µs     max=96µs     p(95)=51.04µs  p(99)=64µs     p(99.99)=95.2µs  
+     http_req_sending...............: min=6µs      avg=15.91µs  med=15µs     max=220µs    p(95)=25µs     p(99)=32µs     p(99.99)=202.11µs
+     http_req_tls_handshaking.......: min=0s       avg=0s       med=0s       max=0s       p(95)=0s       p(99)=0s       p(99.99)=0s      
+     http_req_waiting...............: min=151.11ms avg=296.15ms med=292.46ms max=541.34ms p(95)=404.35ms p(99)=460.36ms p(99.99)=538.55ms
+     http_reqs......................: 1000  13.473381/s
+     iteration_duration.............: min=151.51ms avg=296.56ms med=292.87ms max=541.69ms p(95)=404.77ms p(99)=460.74ms p(99.99)=538.9ms 
+     iterations.....................: 1000  13.473381/s
+     vus............................: 4     min=4       max=4 
+     vus_max........................: 4     min=4       max=4 
+
+
+running (1m14.2s), 0/4 VUs, 1000 complete and 0 interrupted iterations
+contacts ✓ [======================================] 4 VUs  1m14.2s/1m30s  1000/1000 shared iters
+----------------------------------------
+Count:   1117
+Min:     116.0ms
+Average: 188.7ms
+Median:  183.7ms
+P75:     217.6ms
+P95:     274.7ms
+P99:     319.3ms
+P99.9:   358.2ms
+Max:     374.6ms
+
+$ bin/bench_constant 4
+Puma starting in single mode...
+* Puma version: 6.4.1 (ruby 3.3.0-p0) ("The Eagle of Durango")
+*  Min threads: 4
+*  Max threads: 4
+*  Environment: development
+*          PID: 26971
+Testing with:
+50.0% time spent waiting on CPU
+50.0% time spent waiting on IO
+0.1 seconds average response duration (approximate, not including GC)
+300000 objects are generated w/each request
+We will decide to do CPU or IO every 10.0 milliseconds
+CPU iteration: 0.051999930292367935ms
+* Listening on http://0.0.0.0:9292
+Use Ctrl-C to stop
+Warming up for 15 seconds...
+Benchmarking...
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: k6/constant.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 4 max VUs, 2m0s max duration (incl. graceful stop):
+           * contacts: 1000 iterations shared among 4 VUs (maxDuration: 1m30s, gracefulStop: 30s)
+
+
+     data_received..................: 95 kB 1.4 kB/s
+     data_sent......................: 80 kB 1.2 kB/s
+     http_req_blocked...............: min=147µs    avg=298.16µs med=292µs    max=989µs    p(95)=374.04µs p(99)=473.07µs p(99.99)=982.7µs 
+     http_req_connecting............: min=131µs    avg=266.41µs med=261µs    max=818µs    p(95)=333µs    p(99)=371µs    p(99.99)=787.63µs
+     http_req_duration..............: min=127.94ms avg=267.93ms med=261.59ms max=471.51ms p(95)=379.62ms p(99)=418.98ms p(99.99)=471.47ms
+       { expected_response:true }...: min=127.94ms avg=267.93ms med=261.59ms max=471.51ms p(95)=379.62ms p(99)=418.98ms p(99.99)=471.47ms
+     http_req_failed................: 0.00% ✓ 0         ✗ 1000
+     http_req_receiving.............: min=12µs     avg=33.7µs   med=35µs     max=78µs     p(95)=49µs     p(99)=62µs     p(99.99)=78µs    
+     http_req_sending...............: min=6µs      avg=15.98µs  med=15µs     max=186µs    p(95)=25µs     p(99)=34µs     p(99.99)=185.1µs 
+     http_req_tls_handshaking.......: min=0s       avg=0s       med=0s       max=0s       p(95)=0s       p(99)=0s       p(99.99)=0s      
+     http_req_waiting...............: min=127.88ms avg=267.88ms med=261.55ms max=471.46ms p(95)=379.57ms p(99)=418.92ms p(99.99)=471.42ms
+     http_reqs......................: 1000  14.893475/s
+     iteration_duration.............: min=128.29ms avg=268.27ms med=261.89ms max=471.81ms p(95)=379.87ms p(99)=419.33ms p(99.99)=471.77ms
+     iterations.....................: 1000  14.893475/s
+     vus............................: 4     min=4       max=4 
+     vus_max........................: 4     min=4       max=4 
+
+
+running (1m07.1s), 0/4 VUs, 1000 complete and 0 interrupted iterations
+contacts ✓ [======================================] 4 VUs  1m07.1s/1m30s  1000/1000 shared iters
+----------------------------------------
+Count:   1118
+Min:     116.2ms
+Average: 211.0ms
+Median:  208.1ms
+P75:     246.6ms
+P95:     310.0ms
+P99:     359.2ms
+P99.9:   393.9ms
+Max:     407.8ms
+
+$ bin/bench_constant 5
+Puma starting in single mode...
+* Puma version: 6.4.1 (ruby 3.3.0-p0) ("The Eagle of Durango")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 27873
+Testing with:
+50.0% time spent waiting on CPU
+50.0% time spent waiting on IO
+0.1 seconds average response duration (approximate, not including GC)
+300000 objects are generated w/each request
+We will decide to do CPU or IO every 10.0 milliseconds
+CPU iteration: 0.050999922677874565ms
+* Listening on http://0.0.0.0:9292
+Use Ctrl-C to stop
+Warming up for 15 seconds...
+Benchmarking...
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: k6/constant.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 4 max VUs, 2m0s max duration (incl. graceful stop):
+           * contacts: 1000 iterations shared among 4 VUs (maxDuration: 1m30s, gracefulStop: 30s)
+
+
+     data_received..................: 95 kB 1.4 kB/s
+     data_sent......................: 80 kB 1.2 kB/s
+     http_req_blocked...............: min=132µs    avg=321.95µs med=309µs    max=2.23ms   p(95)=394.29µs p(99)=485.01µs p(99.99)=2.19ms  
+     http_req_connecting............: min=118µs    avg=284.69µs med=275µs    max=2.03ms   p(95)=359µs    p(99)=421.08µs p(99.99)=1.99ms  
+     http_req_duration..............: min=129.38ms avg=275.52ms med=268.27ms max=575.4ms  p(95)=389.64ms p(99)=442.93ms p(99.99)=573.13ms
+       { expected_response:true }...: min=129.38ms avg=275.52ms med=268.27ms max=575.4ms  p(95)=389.64ms p(99)=442.93ms p(99.99)=573.13ms
+     http_req_failed................: 0.00% ✓ 0         ✗ 1000
+     http_req_receiving.............: min=13µs     avg=38.51µs  med=39µs     max=117µs    p(95)=53µs     p(99)=70.01µs  p(99.99)=116.2µs 
+     http_req_sending...............: min=7µs      avg=18.3µs   med=17µs     max=282µs    p(95)=28µs     p(99)=37µs     p(99.99)=271.91µs
+     http_req_tls_handshaking.......: min=0s       avg=0s       med=0s       max=0s       p(95)=0s       p(99)=0s       p(99.99)=0s      
+     http_req_waiting...............: min=129.31ms avg=275.46ms med=268.21ms max=575.34ms p(95)=389.58ms p(99)=442.88ms p(99.99)=573.07ms
+     http_reqs......................: 1000  14.484234/s
+     iteration_duration.............: min=129.71ms avg=275.89ms med=268.74ms max=575.74ms p(95)=389.86ms p(99)=443.27ms p(99.99)=573.48ms
+     iterations.....................: 1000  14.484234/s
+     vus............................: 1     min=1       max=4 
+     vus_max........................: 4     min=4       max=4 
+
+
+running (1m09.0s), 0/4 VUs, 1000 complete and 0 interrupted iterations
+contacts ✓ [======================================] 4 VUs  1m09.0s/1m30s  1000/1000 shared iters
+----------------------------------------
+Count:   1117
+Min:     115.9ms
+Average: 215.3ms
+Median:  212.2ms
+P75:     252.2ms
+P95:     318.2ms
+P99:     378.9ms
+P99.9:   486.1ms
+Max:     519.6ms

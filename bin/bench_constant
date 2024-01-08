@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-PUMATHREADS=${1:-1}
+export PUMATHREADS=${1:-1}
+
+# Defaulting to 50% IO and 100ms responses.
+export RESPONSE_TIME_SECONDS=${RESPONSE_TIME_SECONDS:-0.1}
+export IO_WAIT_RATIO=${IO_WAIT_RATIO:-0.5}
 
 bundle exec puma -C puma.rb -t $PUMATHREADS &
 PIDPUMA=$!
@@ -10,8 +14,5 @@ echo "Warming up for 15 seconds..."
 k6 run --duration 15s k6/constant.js > /dev/null
 
 echo "Benchmarking..."
-k6 run --summary-trend-stats "min,avg,med,max,p(95),p(99),p(99.99)" k6/constant.js &
-PIDBENCH=$!
-
-wait $PIDBENCH
-kill $PIDPUMA
+k6 run --summary-trend-stats "min,avg,med,max,p(95),p(99),p(99.99)" k6/constant.js
+kill -sTERM $PIDPUMA
